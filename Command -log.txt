@@ -1,1 +1,9 @@
+Investigation
+# Investigator: Zakia Rani
 
+# 1. Extracting metadata and raw data samples
+# This command captures the first 100 lines of readable strings from the RAM dump.
+strings /home/zakia/myram.raw | head -n 100
+
+# 2. Forensic Search for Email Addresses
+# Targeted extraction of 
