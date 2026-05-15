@@ -1,1 +1,42 @@
+# ==========================================
+# PHASE 1: INSTALLATION & SETUP
+# ==========================================
+
+# Updating system packages
+sudo apt update && sudo apt upgrade -y
+
+# Installing Python and necessary dependencies
+sudo apt install python3 python3-pip git -y
+
+# Cloning Volatility 3 repository from GitHub
+git clone https://github.com/volatilityfoundation/volatility3.git
+cd volatility3
+
+# Installing Volatility 3 requirements
+pip3 install -r requirements.txt
+
+# Verifying installation
+python3 vol.py --help
+
+# ==========================================
+# PHASE 2: FORENSIC ANALYSIS (Manual Carving)
+# ==========================================
+
+# 1. Extracting raw data sample
+strings /home/zakia/myram.raw | head -n 100 > result.txt
+
+# 2. Searching for Emails
+strings /home/zakia/myram.raw | grep -E "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" | head -n 20 >> result.txt
+
+# 3. Hunting for Login/Session Errors
+strings /home/zakia/myram.raw | grep -iE "login|user|session|error" | head -n 20 >> result.txt
+
+# 4. Web Activity (HTTP/HTTPS)
+strings /home/zakia/myram.raw | grep "http" | head -n 20 >> result.txt
+
+# 5. User Specific Traces (Searching for 'zakia')
+strings /home/zakia/myram.raw | grep -i "zakia" | head -n 15 >> result.txt
+
+# Finalizing the report
+mv result.txt Final_Forensics_Report.txt
 
