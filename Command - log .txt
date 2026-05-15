@@ -1,1 +1,27 @@
+# RAM Forensics Analysis - Automated & Manual Investigation
+# Investigator: Zakia Rani
+
+# 1. Extracting metadata and raw data samples
+# This command captures the first 100 lines of readable strings from the RAM dump.
+strings /home/zakia/myram.raw | head -n 100
+
+# 2. Forensic Search for Email Addresses
+# Targeted extraction of emails to identify communication traces.
+strings /home/zakia/myram.raw | grep -E "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" | head -n 20
+
+# 3. Security Analysis: System Errors & Alerts
+# Hunting for memory corruption indicators like "stack overflow" or "PCI errors".
+strings /home/zakia/myram.raw | grep -iE "login|user|session|error" | head -n 20
+
+# 4. User Activity Traces (Personal Identity Verification)
+# Searching for local directory paths and user-specific artifacts.
+strings /home/zakia/myram.raw | grep -i "zakia" | head -n 10
+
+# 5. Web Discovery (HTTP/HTTPS protocols)
+# Identifying web service headers and potential browser activity.
+strings /home/zakia/myram.raw | grep "http" | head -n 20
+
+# 6. Data Consolidation
+# Finalizing the forensic report by combining targeted outputs into a single file.
+cat results_part1.txt results_part2.txt > Final_Forensics_Report.txt
 
