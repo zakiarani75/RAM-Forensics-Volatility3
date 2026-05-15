@@ -20,7 +20,7 @@ Using Regular Expressions (Regex) to carve out communication traces from the vol
 
 #### Screenshot: Carved Emails
 Here is the command output showing extracted developer emails from raw memory:
-![Screenshot 1: Email Extraction Log](image_6.png)
+(image_6.png)
 
 * **Key Result:** Successfully extracted emails (e.g., *byronimo@gmail.com*, *devel@kali.org*).
 
@@ -29,7 +29,7 @@ Identifying local user artifacts and directory structures to verify the system o
 
 #### Screenshot: Zakia Profile Traces
 Output showing local home directories and metadata linked to user 'zakia':
-![Screenshot 2: User Activity Log](image_7.png)
+(image_7.png)
 
 * **Key Result:** Traced home directories and application files linked to profile `/home/zakia`.
 
@@ -38,7 +38,7 @@ Hunting for system-level alerts and session errors to identify crashes or securi
 
 #### Screenshot: Security & Error Flags
 Here we see stack overflow and grub errors found in memory:
-![Screenshot 3: System Error Logs](image_8.png)
+(image_8.png)
 
 * **Key Result:** Identified stack overflow detections and parity errors.
 
@@ -47,7 +47,7 @@ Extracting HTTP/HTTPS service traces to understand the network footprint.
 
 #### Screenshot: Web Traffic Analysis
 Captured HTTP headers and protocol instances:
-![Screenshot 4: Web Traffic Logs](image_9.png)
+(image_9.png)
 
 * **Key Result:** Captured web server headers and exceptions.
 
